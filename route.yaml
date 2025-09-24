@@ -1,0 +1,62 @@
+kind: Route
+apiVersion: route.openshift.io/v1
+metadata:
+  name: nginx-service
+  namespace: test-argocd
+  uid: cef35781-b02f-41d5-8c0c-1f2fa0f4a47b
+  resourceVersion: '2783066'
+  creationTimestamp: '2025-09-24T09:14:33Z'
+  labels:
+    app.kubernetes.io/instance: nginx
+    run: nginx-service
+  annotations:
+    openshift.io/host.generated: 'true'
+  managedFields:
+    - manager: oc
+      operation: Update
+      apiVersion: route.openshift.io/v1
+      time: '2025-09-24T09:14:33Z'
+      fieldsType: FieldsV1
+      fieldsV1:
+        'f:metadata':
+          'f:labels':
+            .: {}
+            'f:app.kubernetes.io/instance': {}
+            'f:run': {}
+        'f:spec':
+          'f:port':
+            .: {}
+            'f:targetPort': {}
+          'f:to':
+            'f:kind': {}
+            'f:name': {}
+            'f:weight': {}
+          'f:wildcardPolicy': {}
+    - manager: openshift-router
+      operation: Update
+      apiVersion: route.openshift.io/v1
+      time: '2025-09-24T09:14:33Z'
+      fieldsType: FieldsV1
+      fieldsV1:
+        'f:status':
+          'f:ingress': {}
+      subresource: status
+spec:
+  host: nginx-service-test-argocd.apps-crc.testing
+  to:
+    kind: Service
+    name: nginx-service
+    weight: 100
+  port:
+    targetPort: 8080
+  wildcardPolicy: None
+status:
+  ingress:
+    - host: nginx-service-test-argocd.apps-crc.testing
+      routerName: default
+      conditions:
+        - type: Admitted
+          status: 'True'
+          lastTransitionTime: '2025-09-24T09:14:33Z'
+      wildcardPolicy: None
+      routerCanonicalHostname: router-default.apps-crc.testing
