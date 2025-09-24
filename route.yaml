@@ -1,12 +1,12 @@
 apiVersion: route.openshift.io/v1
 kind: Route
 metadata:
-  name: engin1-route
+  name: engin-route
   namespace: test-argocd
 spec:
-  host: enginx1.apps-crc.testing 
+  host: nginx-service-test-argocd.apps-crc.testing 
   port:
-    targetPort: 8080 
+    targetPort: 8081
   to:
     kind: Service
     name: nginx-service
