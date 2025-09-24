@@ -1,7 +1,7 @@
 apiVersion: route.openshift.io/v1
 kind: Route
 metadata:
-  name: engin1
+  name: engin1-route
   namespace: test-argocd
 spec:
   host: enginx1.apps-crc.testing 
