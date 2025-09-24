@@ -24,7 +24,7 @@ metadata:
             f:name: {}	
             f:weight: {}	
           f:wildcardPolicy: {}	
-      manager: oc	
+      manager: argocd-controller	
       operation: Update	
       time: '2025-09-24T09:33:58Z'	
     - apiVersion: route.openshift.io/v1	
