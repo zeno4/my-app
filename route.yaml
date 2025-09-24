@@ -1,0 +1,51 @@
+apiVersion: route.openshift.io/v1	
+kind: Route	
+metadata:	
+  annotations:	
+    openshift.io/host.generated: 'true'	
+  labels:	
+    app.kubernetes.io/instance: nginx	
+    run: nginx-service	
+  managedFields:	
+    - apiVersion: route.openshift.io/v1	
+      fieldsType: FieldsV1	
+      fieldsV1:	
+        f:metadata:	
+          f:labels:	
+            .: {}	
+            f:app.kubernetes.io/instance: {}	
+            f:run: {}	
+        f:spec:	
+          f:port:	
+            .: {}	
+            f:targetPort: {}	
+          f:to:	
+            f:kind: {}	
+            f:name: {}	
+            f:weight: {}	
+          f:wildcardPolicy: {}	
+      manager: oc	
+      operation: Update	
+      time: '2025-09-24T09:33:58Z'	
+    - apiVersion: route.openshift.io/v1	
+      fieldsType: FieldsV1	
+      fieldsV1:	
+        f:status:	
+          f:ingress: {}	
+      manager: openshift-router	
+      operation: Update	
+      subresource: status	
+      time: '2025-09-24T09:33:58Z'	
+  name: nginx-service	
+  namespace: test-argocd	
+  resourceVersion: '2787726'	
+  uid: 27aacec6-ae60-4257-8ae2-c04137b35e06	
+spec:	
+  host: nginx-service-test-argocd.apps-crc.testing	
+  port:	
+    targetPort: 8080	
+  to:	
+    kind: Service	
+    name: nginx-service	
+    weight: 100	
+  wildcardPolicy: None
